@@ -3,11 +3,11 @@ package ua.lviv.lgs.homework.part2;
 public class Car {
 	private int cost;
 	private String type;
-	
+
 	private String steeringWheel;
 	private String wheel;
 	private String body;
-	
+
 	public String getInfo(String yearOfBuilt) {
 		return this.type + yearOfBuilt;
 	}
@@ -26,7 +26,7 @@ public class Car {
 		this.wheel = wheel;
 		this.body = body;
 	}
-	
+
 	public int getCost() {
 		return cost;
 	}
@@ -72,5 +72,5 @@ public class Car {
 		return "Car [cost=" + cost + ", type=" + type + ", steeringWheel=" + steeringWheel + ", wheel=" + wheel
 				+ ", body=" + body + "]";
 	}
-	
+
 }
