@@ -4,9 +4,9 @@ public class Car {
 	private int cost;
 	private String type;
 	
-	SteeringWheel sw = new SteeringWheel();
-	Wheel w = new Wheel();
-	Body b = new Body();
+	private String steeringWheel;
+	private String wheel;
+	private String body;
 	
 	public String getInfo(String yearOfBuilt) {
 		return this.type + yearOfBuilt;
@@ -18,15 +18,15 @@ public class Car {
 		this.type = type;
 	}
 
-	public Car(int cost, String type, SteeringWheel sw, Wheel w, Body b) {
+	public Car(int cost, String type, String steeringWheel, String wheel, String body) {
 		super();
 		this.cost = cost;
 		this.type = type;
-		this.sw = sw;
-		this.w = w;
-		this.b = b;
+		this.steeringWheel = steeringWheel;
+		this.wheel = wheel;
+		this.body = body;
 	}
-
+	
 	public int getCost() {
 		return cost;
 	}
@@ -43,33 +43,34 @@ public class Car {
 		this.type = type;
 	}
 
-	public SteeringWheel getSw() {
-		return sw;
+	public String getSteeringWheel() {
+		return steeringWheel;
 	}
 
-	public void setSw(SteeringWheel sw) {
-		this.sw = sw;
+	public void setSteeringWheel(String steeringWheel) {
+		this.steeringWheel = steeringWheel;
 	}
 
-	public Wheel getW() {
-		return w;
+	public String getWheel() {
+		return wheel;
 	}
 
-	public void setW(Wheel w) {
-		this.w = w;
+	public void setWheel(String wheel) {
+		this.wheel = wheel;
 	}
 
-	public Body getB() {
-		return b;
+	public String getBody() {
+		return body;
 	}
 
-	public void setB(Body b) {
-		this.b = b;
+	public void setBody(String body) {
+		this.body = body;
 	}
 
 	@Override
 	public String toString() {
-		return "Car [cost=" + cost + ", type=" + type + ", sw=" + sw + ", w=" + w + ", b=" + b + "]";
+		return "Car [cost=" + cost + ", type=" + type + ", steeringWheel=" + steeringWheel + ", wheel=" + wheel
+				+ ", body=" + body + "]";
 	}
 	
 }

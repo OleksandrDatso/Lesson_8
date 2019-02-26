@@ -5,7 +5,7 @@ public class Application_part_2 {
 		Car car = new Car(1500000, "Sport Car");
 		System.out.println(car);
 		
-//		Car car2 = new Car(20000000, "Luxury", "Modern", "Standard", "Comfortable");	Понимаю в чем проблема - не понимаю как исправить
-//		System.out.println(car2);
+		Car car2 = new Car(20000000, "Luxury", "Modern", "Standard", "Comfortable");
+		System.out.println(car2);
 	}
 }

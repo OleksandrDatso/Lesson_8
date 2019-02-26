@@ -4,6 +4,12 @@ public class Body {
 	private int volume;
 	private String color;
 	
+	public Body(int volume, String color) {
+		super();
+		this.volume = volume;
+		this.color = color;
+	}
+	
 	public int getVolume() {
 		return volume;
 	}

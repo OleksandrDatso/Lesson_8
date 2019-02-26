@@ -3,6 +3,12 @@ package ua.lviv.lgs.homework.part2;
 public class Wheel {
 	private int diameter = 195;
 	private String model = "F-1";
+		
+	public Wheel(int diameter, String model) {
+		super();
+		this.diameter = diameter;
+		this.model = model;
+	}
 	
 	public int getDiameter() {
 		return diameter;
