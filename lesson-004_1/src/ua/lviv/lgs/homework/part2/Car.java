@@ -3,24 +3,35 @@ package ua.lviv.lgs.homework.part2;
 public class Car {
 	private int cost;
 	private String type;
-	
+
 	private String steeringWheel;
 	private String wheel;
 	private String body;
+	private int WheelSize;
+
+	public void WheelSize(int i) {
+
+	}
 	
+	public Car(int wheelSize) {
+		super();
+		setWheelSize(wheelSize);
+	}
+
 	public Car(int cost, String type) {
 		super();
 		this.cost = cost;
 		this.type = type;
 	}
 
-	public Car(int cost, String type, String steeringWheel, String wheel, String body) {
+	public Car(int cost, String type, String steeringWheel, String wheel, String body, int WheelSize) {
 		super();
 		this.cost = cost;
 		this.type = type;
 		this.steeringWheel = steeringWheel;
 		this.wheel = wheel;
 		this.body = body;
+		this.WheelSize = WheelSize;
 	}
 
 	public int getCost() {
@@ -66,8 +77,15 @@ public class Car {
 	@Override
 	public String toString() {
 		return "Car [cost=" + cost + ", type=" + type + ", steeringWheel=" + steeringWheel + ", wheel=" + wheel
-				+ ", body=" + body + "]";
+				+ ", body=" + body + ", WheelSize=" + WheelSize + "]";
 	}
-	
-	
+
+	public int getWheelSize() {
+		return WheelSize;
+	}
+
+	public void setWheelSize(int wheelSize) {
+		WheelSize = wheelSize;
+	}
+
 }
