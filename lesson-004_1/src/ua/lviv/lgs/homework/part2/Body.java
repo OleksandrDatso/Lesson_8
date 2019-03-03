@@ -10,6 +10,7 @@ public class Body {
 		this.color = color;
 	}
 
+
 	public int getVolume() {
 		return volume;
 	}

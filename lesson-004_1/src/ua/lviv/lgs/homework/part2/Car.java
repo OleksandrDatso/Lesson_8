@@ -3,24 +3,23 @@ package ua.lviv.lgs.homework.part2;
 public class Car {
 	private int cost;
 	private String type;
-	
-	private String steeringWheel;
-	private String wheel;
-	private String body;
-	
-	public Car(int cost, String type) {
-		super();
-		this.cost = cost;
-		this.type = type;
-	}
 
-	public Car(int cost, String type, String steeringWheel, String wheel, String body) {
+	private SteeringWheel steeringWheel;
+	private Wheel wheel;
+	private Body body;
+
+	public Car(int cost, String type, SteeringWheel steeringWheel, Wheel wheel, Body body) {
 		super();
 		this.cost = cost;
 		this.type = type;
 		this.steeringWheel = steeringWheel;
 		this.wheel = wheel;
 		this.body = body;
+	}
+
+	public void changeCar() {
+		this.cost = 1000000;
+		this.type = "newType";
 	}
 
 	public int getCost() {
@@ -39,27 +38,27 @@ public class Car {
 		this.type = type;
 	}
 
-	public String getSteeringWheel() {
+	public SteeringWheel getSteeringWheel() {
 		return steeringWheel;
 	}
 
-	public void setSteeringWheel(String steeringWheel) {
+	public void setSteeringWheel(SteeringWheel steeringWheel) {
 		this.steeringWheel = steeringWheel;
 	}
 
-	public String getWheel() {
+	public Wheel getWheel() {
 		return wheel;
 	}
 
-	public void setWheel(String wheel) {
+	public void setWheel(Wheel wheel) {
 		this.wheel = wheel;
 	}
 
-	public String getBody() {
+	public Body getBody() {
 		return body;
 	}
 
-	public void setBody(String body) {
+	public void setBody(Body body) {
 		this.body = body;
 	}
 
@@ -68,6 +67,5 @@ public class Car {
 		return "Car [cost=" + cost + ", type=" + type + ", steeringWheel=" + steeringWheel + ", wheel=" + wheel
 				+ ", body=" + body + "]";
 	}
-	
-	
+
 }
