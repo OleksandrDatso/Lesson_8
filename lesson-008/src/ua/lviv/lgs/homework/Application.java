@@ -3,36 +3,6 @@ package ua.lviv.lgs.homework;
 import java.util.*;
 
 public class Application {
-	enum Seasons {
-		winter, spring, summer, autumn;
-	}
-
-	enum Months {
-		january(Seasons.winter), february(Seasons.winter), march(Seasons.spring), april(Seasons.spring),
-		may(Seasons.spring), june(Seasons.summer), july(Seasons.summer), august(Seasons.summer),
-		september(Seasons.autumn), october(Seasons.autumn), november(Seasons.autumn), december(Seasons.winter);
-
-		Seasons days;
-		Seasons seasons;
-
-		Months(Seasons seasons) {
-			this.seasons = seasons;
-		}
-
-		Months(Seasons days, Seasons seasons) {
-			this.days = days;
-			this.seasons = seasons;
-		}
-
-		public Seasons getDays() {
-			return days;
-		}
-
-		public Seasons getSeasons() {
-			return seasons;
-		}
-
-	}
 
 	static void menu() {
 		System.out.println("Нажми 1, чтобы проверить существует ли такой месяц");
@@ -42,6 +12,9 @@ public class Application {
 		System.out.println("Нажми 5, чтобы вывести на экран все месяцы, которые имеют большее количество дней");
 		System.out.println("Нажми 6, чтобы вывести на экран следующее время года");
 		System.out.println("Нажми 7, чтобы вывести на экран предыдущее время года");
+		System.out.println("Нажми 8, чтобы вывести на экран все месяцы с четным количеством дней");
+		System.out.println("Нажми 9, чтобы вывести на экран все месяцы с нечетным количеством дней");
+		System.out.println("Нажми 10, чтобы проверить введенный с клавиатуры месяц на четность дней");
 	}
 
 	public static void main(String[] args) {
@@ -55,7 +28,7 @@ public class Application {
 			case "1": {
 				System.out.println("Enter month");
 				sc = new Scanner(System.in);
-				String month = sc.next().toLowerCase();
+				String month = sc.next().toUpperCase();
 
 				boolean present = isMonthPresent(mas, month);
 				if (!present) {
@@ -66,7 +39,7 @@ public class Application {
 			case "2": {
 				System.out.println("Enter season");
 				sc = new Scanner(System.in);
-				String seasonSc = sc.next().toLowerCase();
+				String seasonSc = sc.next().toUpperCase();
 
 				boolean present = false;
 				for (Months m : mas) {
@@ -90,138 +63,119 @@ public class Application {
 			case "3": {
 				System.out.println("Enter number of days");
 				sc = new Scanner(System.in);
-				int days = sc.nextInt();
+				int specNumber = sc.nextInt();
 
-				if (days == 28) {
-					System.out.println("february");
-				} else if (days == 30) {
-					System.out.println("april");
-					System.out.println("june");
-					System.out.println("september");
-					System.out.println("november");
-				} else if (days == 31) {
-					System.out.println("january");
-					System.out.println("march");
-					System.out.println("may");
-					System.out.println("july");
-					System.out.println("august");
-					System.out.println("october");
-					System.out.println("december");
-				} else
-					System.out.println("Неправильное количество дней в месяце");
-				break;
+				for (Months m : Months.values()) {
+					if (m.days == specNumber) {
+						System.out.println(m.toString());
+					}
+				}
 			}
 			case "4": {
-				System.out.println("Enter month");
+				String s = null;
+				System.out.println("Enter a figure");
 				sc = new Scanner(System.in);
-				String month = sc.next().toLowerCase();
+				int specNumber = sc.nextInt();
 
-				if (month.equals("february")) {
-					System.out.println("Это месяц с наименьшим количеством дней");
+				for (Months m : Months.values()) {
+					if (m.days < specNumber) {
+						System.out.println(m.toString());
+					}
 				}
-				if (month.equals("april") | month.equals("june") | month.equals("september")
-						| month.equals("november")) {
-					System.out.println("february");
+				if (s == null) {
+					System.out.println("это всё");
 				}
-				if (month.equals("january") | month.equals("march") | month.equals("may") | month.equals("july")
-						| month.equals("august") | month.equals("october") | month.equals("december")) {
-					System.out.println("february");
-					System.out.println("april");
-					System.out.println("june");
-					System.out.println("september");
-					System.out.println("november");
-				} else
-					System.out.println("Неправильно введен месяц");
-				break;
 			}
 			case "5": {
-				System.out.println("Enter month");
+				String s = null;
+				System.out.println("Enter a figure");
 				sc = new Scanner(System.in);
-				String month = sc.next().toLowerCase();
+				int specNumber = sc.nextInt();
 
-				if (month.equals("february")) {
-					System.out.println("january");
-					System.out.println("march");
-					System.out.println("april");
-					System.out.println("may");
-					System.out.println("june");
-					System.out.println("july");
-					System.out.println("august");
-					System.out.println("september");
-					System.out.println("october");
-					System.out.println("november");
-					System.out.println("december");
+				for (Months m : Months.values()) {
+					if (m.days > specNumber) {
+						System.out.println(m.toString());
+					}
 				}
-				if (month.equals("april") | month.equals("june") | month.equals("september")
-						| month.equals("november")) {
-					System.out.println("february");
-					System.out.println("april");
-					System.out.println("june");
-					System.out.println("september");
-					System.out.println("november");
+				if (s == null) {
+					System.out.println("это всё");
 				}
-				if (month.equals("january") | month.equals("march") | month.equals("may") | month.equals("july")
-						| month.equals("august") | month.equals("october") | month.equals("december")) {
-					System.out.println("Это месяц с наибольшим количеством дней");
-				} else
-					System.out.println("Неправильно введен месяц");
-				break;
 			}
 			case "6": {
-				System.out.println("Enter season");
+				System.out.println("Enter ");
 				sc = new Scanner(System.in);
-				String seasonSc = sc.next().toLowerCase();
+				String seasonSc = sc.next().toUpperCase();
 
-				Seasons s = Seasons.valueOf(seasonSc);
-				if (s==Seasons.winter) {
-					s = Seasons.spring;
-					System.out.println(s);
-				} else		
-				if (s==Seasons.spring) {
-					s = Seasons.summer;
-					System.out.println(s);
-				} else
-				if (s==Seasons.summer) {
-					s = Seasons.autumn;
-					System.out.println(s);
-				} else
-				if (s==Seasons.autumn) {
-					s = Seasons.winter;
-					System.out.println(s);
-				} else {
-					System.out.println("Неправильно введено время года");
+				boolean present = isMonthPresent(mas, seasonSc);
+				if (present) {
+					Months m = Months.valueOf(seasonSc);
+					int ordinal = m.ordinal();
+
+					if (ordinal == mas.length - 1) {
+						ordinal = 0;
+						System.out.println(mas[ordinal]);
+					} else {
+						System.out.println(mas[ordinal + 1]);
+					}
+				}
+				if (!present) {
+					System.out.println("Нету вреемени года");
 				}
 				break;
 			}
 			case "7": {
-				System.out.println("Enter season");
+				System.out.println("Enter ");
 				sc = new Scanner(System.in);
-				String seasonSc = sc.next().toLowerCase();
+				String seasonSc = sc.next().toUpperCase();
 
-				Seasons s = Seasons.valueOf(seasonSc);
-				if (s==Seasons.winter) {
-					s = Seasons.autumn;
-					System.out.println(s);
-				} else		
-				if (s==Seasons.spring) {
-					s = Seasons.winter;
-					System.out.println(s);
-				} else
-				if (s==Seasons.summer) {
-					s = Seasons.spring;
-					System.out.println(s);
-				} else
-				if (s==Seasons.autumn) {
-					s = Seasons.summer;
-					System.out.println(s);
-				} else {
-					System.out.println("Неправильно введено время года");
+				boolean present = isMonthPresent(mas, seasonSc);
+				if (present) {
+					Months m = Months.valueOf(seasonSc);
+					int ordinal = m.ordinal();
+
+					if (ordinal == mas.length + 1) {
+						ordinal = 0;
+						System.out.println(mas[ordinal]);
+					} else {
+						System.out.println(mas[ordinal - 1]);
+					}
+				}
+				if (!present) {
+					System.out.println("Нету вреемени года");
 				}
 				break;
 			}
+			case "8": {
+				for (Months m : Months.values()) {
+					if(m.days % 2 == 0) {
+						System.out.println(m.name() + " насчитывает " + m.days + " дней");
+					}
+				}
+			}
+			case "9": {
+				for (Months m : Months.values()) {
+					if(m.days % 2 != 0) {
+						System.out.println(m.name() + " насчитывает " + m.days + " дней");
+					}
+				}
+			}
+			case "10": {
+				System.out.println("Enter ");
+				sc = new Scanner(System.in);
+				String str = sc.next().toUpperCase();
+				boolean present = isMonthPresent(mas, str);
+				if(present) {
+					Months m = Months.valueOf(str); 
+					if(m.days % 2 == 0) {
+						System.out.println(m.name() + " имеет четное количество дней");
+					} else {
+						System.out.println(m.name() + " имеет нечетное количество дней");
+					}
+				}
 			}
 		}
 	}
+}
 
 	private static boolean isMonthPresent(Months[] mas, String month) {
 		boolean present = false;
@@ -233,5 +187,6 @@ public class Application {
 		}
 		return present;
 	}
+	
 
 }
